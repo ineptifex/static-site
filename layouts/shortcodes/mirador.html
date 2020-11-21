@@ -1,0 +1,34 @@
+ <div id="mirador{{ .Ordinal }}" class="mirador">
+    <script type="text/javascript">
+      Mirador.viewer({
+        id: "mirador{{ .Ordinal }}",
+        selectedTheme: 'dark',
+        thumbnailNavigation: {
+        	defaultPosition: 'off',
+        },
+        workspaceControlPanel: {
+        	enabled: false,
+        },
+        window: {
+        	// defaultView: 'single',
+        	sideBarOpenByDefault: false,
+        	allowClose: false,
+        	allowWindowSideBar: true,
+        	allowFullscreen: true,
+        	allowMaximize: false,
+        	views: [
+				{ key: "single" },
+				{ key: "book" },
+				{ key: "gallery" }
+  			]
+        },
+        windows: [
+        	{
+        		manifestId: '{{ .Get "uri" }}',
+        		canvasIndex: '{{ .Get "page"}}',
+        		defaultView: 'single',
+        	}
+        ]
+      });
+    </script>
+</div>

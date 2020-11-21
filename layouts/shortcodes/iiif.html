@@ -1,0 +1,14 @@
+<div class="uv" 
+     data-config="https://iiif.bodleian.ox.ac.uk/universalviewer/bodleian-config.json" 
+     data-uri="{{ with .Get `uri` }} {{.}} {{ end }}" 
+     data-collectionindex="0" 
+     data-manifestindex="0" 
+     data-sequenceindex="0"
+     data-canvasindex='{{ if isset .Params "page" }} {{ .Get "page" }}{{ else }} 0 {{ end }}' 
+     style='width:{{ if isset .Params "width" }} {{ .Get "width" }}{{ else }} 600px{{ end }}; 
+            height:{{ if isset .Params "height" }} {{ .Get "height" }}{{ else }} 800px{{ end }};'
+     data-rotation="0">
+</div>
+{{ if isset .Params "caption" }}
+<p class="uv-caption"><i>{{ .Get "caption" | markdownify }}</i></p>
+{{ end }}
